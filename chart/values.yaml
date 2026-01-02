@@ -9,6 +9,22 @@ service:
   type: NodePort
   port: 3000
 
+ingress:
+  enabled: false
+  className: nginx
+  annotations: {}
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: transaction-check-api.example.com
+      paths:
+        - path: /api/payment
+          pathType: Prefix
+  tls:
+    - secretName: transaction-check-api-tls
+      hosts:
+        - transaction-check-api.example.com
+
 tolerations:
   - key: "node-for-project.megane.io"
     operator: "Equal"
