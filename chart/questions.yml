@@ -76,11 +76,6 @@ questions:
           - Exact
           - ImplementationSpecific
         default: "Prefix"
-      - variable: ingress.tls[0].secretName
-        label: "TLS Secret"
-        description: "TLS certificate secret name"
-        type: string
-        default: "transaction-check-api-tls"
 
   # Environment Variables
   - variable: REDIS_URI
