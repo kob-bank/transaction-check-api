@@ -2,34 +2,61 @@ labels:
   io.cattle.role: project
   io.rancher.app_min_version: 9.0.2
 questions:
+  - variable: IMAGE_REPOSITORY
+    label: "Image Repository"
+    description: "DOCR Repository (e.g., kob-bank)"
+    type: string
+    default: "kob-bank"
+    required: true
+    group: "Container Image"
+  - variable: IMAGE_NAME
+    label: "Image Name"
+    description: "Container image name"
+    type: string
+    default: "transaction-check-api"
+    required: true
+    group: "Container Image"
+  - variable: image.tag
+    label: "Image Tag"
+    description: "Docker image tag (e.g., latest, main-abc123)"
+    type: string
+    default: "latest"
+    required: true
+    group: "Container Image"
   - variable: REDIS_URI
     label: "Redis URI"
     description: "Redis connection string (e.g., redis://redis-service:6379)"
     type: string
     default: "redis://localhost:6379"
     required: true
+    group: "Configuration"
   - variable: PORT
     label: "Service Port"
     description: "Port number for the service"
     type: string
     default: "3000"
+    group: "Configuration"
   - variable: MIN_REPLICA
     label: "Min Replica"
     description: "Minimum number of replicas"
     type: string
     default: "1"
+    group: "Scaling"
   - variable: MAX_REPLICA
     label: "Max Replica"
     description: "Maximum number of replicas"
     type: string
     default: "5"
+    group: "Scaling"
   - variable: TARGET_CPU
     label: "Target CPU %"
     description: "Target CPU utilization for autoscaling"
     type: string
     default: "80"
+    group: "Scaling"
   - variable: TARGET_MEM
     label: "Target Memory %"
     description: "Target memory utilization for autoscaling"
     type: string
     default: "80"
+    group: "Scaling"

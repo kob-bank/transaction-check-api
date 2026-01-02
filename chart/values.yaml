@@ -2,8 +2,8 @@ nodeSelector:
   doks.digitalocean.com/node-pool: worker-cluster-payment-pool
 
 image:
-  repository:
-  tag:
+  repository: registry.digitalocean.com
+  tag: latest
 
 service:
   type: NodePort
@@ -21,3 +21,5 @@ MIN_REPLICA: 1
 MAX_REPLICA: 5
 TARGET_CPU: 80
 TARGET_MEM: 80
+IMAGE_REPOSITORY: "kob-bank"  # Your DOCR repository name
+IMAGE_NAME: "transaction-check-api"
