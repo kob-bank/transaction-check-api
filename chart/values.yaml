@@ -1,0 +1,23 @@
+nodeSelector:
+  doks.digitalocean.com/node-pool: worker-cluster-payment-pool
+
+image:
+  repository:
+  tag:
+
+service:
+  type: NodePort
+  port: 3000
+
+tolerations:
+  - key: "node-for-project.megane.io"
+    operator: "Equal"
+    value: "payment"
+    effect: "NoSchedule"
+
+REDIS_URI: ""
+PORT: "3000"
+MIN_REPLICA: 1
+MAX_REPLICA: 5
+TARGET_CPU: 80
+TARGET_MEM: 80

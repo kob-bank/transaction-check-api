@@ -1,0 +1,29 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "transaction-check-api.fullname" . }}-hpa
+  labels:
+    app: {{ include "transaction-check-api.name" . }}
+    chart: {{ include "transaction-check-api.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "transaction-check-api.fullname" . }}
+  minReplicas: {{ .Values.MIN_REPLICA | default 1 }}
+  maxReplicas: {{ .Values.MAX_REPLICA | default 5 }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.TARGET_CPU | default 80 }}
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.TARGET_MEM | default 80 }}
