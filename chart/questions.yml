@@ -3,13 +3,6 @@ labels:
   io.rancher.app_min_version: 9.0.2
 questions:
   # Container Image
-  - variable: IMAGE_REPOSITORY
-    label: "Image Repository"
-    description: "DOCR Repository (same as compay: kob-payment)"
-    type: string
-    default: "kob-payment"
-    required: true
-    group: "Container Image"
   - variable: IMAGE_NAME
     label: "Image Name"
     description: "Container image name"
@@ -19,9 +12,9 @@ questions:
     group: "Container Image"
   - variable: image.tag
     label: "Image Tag"
-    description: "Docker image tag (e.g., latest, v1.0.0)"
+    description: "Docker image tag (e.g., v0.2.0, v1.0.0)"
     type: string
-    default: "latest"
+    default: "v0.2.0"
     required: true
     group: "Container Image"
 
@@ -48,7 +41,7 @@ questions:
     label: "Enable Ingress"
     description: "Create Ingress resource for external access"
     type: boolean
-    default: false
+    default: true
     group: "Ingress"
     show_subquestions_if: true
     subquestions:
