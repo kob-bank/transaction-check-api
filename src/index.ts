@@ -90,7 +90,7 @@ async function gracefulShutdown(signal: string) {
   } catch (error) {
     console.error('❌ Error during graceful shutdown:', error);
     // Force quit if timeout or error
-    await redis.disconnect().catch(() => {/* ignore */});
+    redis.disconnect();
     process.exit(1);
   }
 }
@@ -315,7 +315,7 @@ async function startServer() {
     };
   } catch (error) {
     console.error('❌ Failed to start server:', error);
-    await redis.disconnect().catch(() => {/* ignore */});
+    redis.disconnect();
     process.exit(1);
   }
 }
