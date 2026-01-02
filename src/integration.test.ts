@@ -234,7 +234,7 @@ describe('Integration Test - Full Transaction Check Flow', () => {
         method: 'POST',
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as { data: { status: string } };
       expect(data.data.status).toBe(expected);
     }
   });
@@ -243,7 +243,7 @@ describe('Integration Test - Full Transaction Check Flow', () => {
     const response = await fetch(`${baseUrl}/health`);
     expect(response.status).toBe(200);
 
-    const data = await response.json();
+    const data = (await response.json()) as { status: string; redis: string; latency_ms: number };
     expect(data.status).toBe('healthy');
     expect(data.redis).toBe('connected');
     expect(typeof data.latency_ms).toBe('number');
