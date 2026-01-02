@@ -45,6 +45,7 @@ jobs:
     name: Build Docker Image
     runs-on: ubuntu-latest
     needs: test
+    if: github.event_name == 'push' && secrets.DOCKER_REGISTRY != ''
 
     steps:
     - uses: actions/checkout@v4
