@@ -82,7 +82,6 @@ jobs:
 
     - name: Push Helm chart
       uses: bsord/helm-push@v4
-      continue-on-error: true
       with:
         registry-url: https://museum-vjm6yelyza-as.a.run.app/
         username: megane
