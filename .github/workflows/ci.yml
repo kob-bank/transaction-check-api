@@ -79,7 +79,6 @@ jobs:
         tags: registry.digitalocean.com/${{ secrets.DIGITALOCEAN_REGISTRY_NAME }}/transaction-check-api:${{ steps.tag_version.outputs.new_tag }}
         platforms: linux/amd64
         cache-from: type=gha
-        cache-to: type=gha,mode=max
 
     - name: Push Helm chart
       uses: bsord/helm-push@v4
