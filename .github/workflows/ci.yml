@@ -81,8 +81,8 @@ jobs:
         cache-from: type=gha
 
     - name: Push Helm chart
-      if: ${{ secrets.HELM_CHART_PASSWORD != '' }}
       uses: bsord/helm-push@v4
+      continue-on-error: true
       with:
         registry-url: https://museum-vjm6yelyza-as.a.run.app/
         username: megane
