@@ -12,9 +12,9 @@ questions:
     group: "Container Image"
   - variable: image.tag
     label: "Image Tag"
-    description: "Docker image tag (e.g., v0.2.0, v1.0.0)"
+    description: "Docker image tag (e.g., v0.3.0, v1.0.0)"
     type: string
-    default: "v0.2.0"
+    default: "v0.3.0"
     required: true
     group: "Container Image"
 
@@ -110,3 +110,17 @@ questions:
     type: int
     default: 80
     group: "Scaling"
+
+  # Graceful Shutdown
+  - variable: lifecycleEnabled
+    label: "Enable Lifecycle Hooks"
+    description: "Enable preStop hook for early termination signal"
+    type: boolean
+    default: true
+    group: "Lifecycle"
+  - variable: terminationGracePeriodSeconds
+    label: "Termination Grace Period"
+    description: "Seconds to wait before forcefully terminating the pod (allows graceful shutdown)"
+    type: int
+    default: 35
+    group: "Lifecycle"

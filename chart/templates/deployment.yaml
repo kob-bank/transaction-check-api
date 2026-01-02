@@ -9,6 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.MIN_REPLICA | default 1 }}
+  terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds | default 35 }}
   selector:
     matchLabels:
       app: {{ include "transaction-check-api.name" . }}
@@ -31,6 +32,12 @@ spec:
         - name: http
           containerPort: {{ .Values.PORT | default "3000" }}
           protocol: TCP
+{{- if .Values.lifecycleEnabled }}
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 5"]
+{{- end }}
         env:
         - name: REDIS_URI
           value: {{ .Values.REDIS_URI | quote }}
