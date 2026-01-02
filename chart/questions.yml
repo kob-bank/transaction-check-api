@@ -5,9 +5,9 @@ questions:
   # Container Image
   - variable: IMAGE_REPOSITORY
     label: "Image Repository"
-    description: "DOCR Repository (e.g., kob-bank)"
+    description: "DOCR Repository (same as compay: kob-payment)"
     type: string
-    default: "kob-bank"
+    default: "kob-payment"
     required: true
     group: "Container Image"
   - variable: IMAGE_NAME

@@ -33,5 +33,5 @@ MIN_REPLICA: 1
 MAX_REPLICA: 5
 TARGET_CPU: 80
 TARGET_MEM: 80
-IMAGE_REPOSITORY: "kob-bank"  # Your DOCR repository name
+IMAGE_REPOSITORY: "kob-payment"  # DOCR repository (same as compay)
 IMAGE_NAME: "transaction-check-api"

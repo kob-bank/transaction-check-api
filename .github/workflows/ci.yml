@@ -76,7 +76,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: registry.digitalocean.com/${{ secrets.DIGITALOCEAN_REGISTRY_NAME }}/transaction-check-api:${{ steps.tag_version.outputs.new_tag }}
+        tags: registry.digitalocean.com/kob-payment/transaction-check-api:${{ steps.tag_version.outputs.new_tag }}
         platforms: linux/amd64
         cache-from: type=gha
 
