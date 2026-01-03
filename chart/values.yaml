@@ -1,10 +1,6 @@
 nodeSelector:
   doks.digitalocean.com/node-pool: worker-cluster-payment-pool
 
-image:
-  repository: registry.digitalocean.com
-  tag: latest
-
 service:
   type: NodePort
   port: 3000
@@ -33,7 +29,5 @@ MIN_REPLICA: 1
 MAX_REPLICA: 5
 TARGET_CPU: 80
 TARGET_MEM: 80
-IMAGE_REPOSITORY: "kob-payment"  # DOCR repository (same as compay)
-IMAGE_NAME: "transaction-check-api"
-lifecycleEnabled: true  # Enable preStop hook for early SIGTERM
-terminationGracePeriodSeconds: 35  # Allow time for graceful shutdown (5s preStop + 30s app timeout)
+lifecycleEnabled: true
+terminationGracePeriodSeconds: 35

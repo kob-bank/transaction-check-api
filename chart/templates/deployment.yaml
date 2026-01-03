@@ -26,7 +26,7 @@ spec:
 {{ toYaml .Values.tolerations | indent 8 }}
       containers:
       - name: transaction-check-api
-        image: registry.digitalocean.com/{{ .Values.IMAGE_REPOSITORY }}/{{ .Values.IMAGE_NAME }}:{{ .Values.image.tag }}
+        image: registry.digitalocean.com/kob-payment/transaction-check-api:{{ .Chart.AppVersion }}
         imagePullPolicy: Always
         ports:
         - name: http
