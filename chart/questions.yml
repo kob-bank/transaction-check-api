@@ -27,3 +27,8 @@ questions:
     label: "Target Memory %"
     type: int
     default: 80
+  - variable: ingress.hosts[0].host
+    label: "Ingress Host"
+    description: "Hostname for the ingress"
+    type: string
+    required: true
